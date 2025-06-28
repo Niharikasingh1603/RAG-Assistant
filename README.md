@@ -13,8 +13,7 @@ A Retrieval-Augmented Generation (RAG) document assistant built with LangChain, 
 
 ## 🚀 Demo
 
-> 🔗 [Live App on Streamlit Cloud](https://your-app-link.streamlit.app)  
-(Replace this with your actual URL after deploying)
+> 🔗 [Live App on Streamlit Cloud](https://gemini-rag-assistant.streamlit.app/)  
 
 ## 🛠️ Tech Stack
 
