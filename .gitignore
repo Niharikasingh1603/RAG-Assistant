@@ -1,0 +1,16 @@
+# Ignore secrets and environment files
+.env
+.streamlit/secrets.toml
+
+# Bytecode and Python cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Local vector storage and uploaded docs
+vectorstores/
+docs/
+
+# System files
+.DS_Store
+Thumbs.db

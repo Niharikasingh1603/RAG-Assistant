@@ -1,0 +1,22 @@
+# Core App Dependencies
+streamlit>=1.29.0
+
+# LangChain and Google Gemini
+langchain-core
+langchain>=0.1.12
+langchain-community>=0.0.17
+langchain-google-genai>=0.0.6
+
+# Vector store
+faiss-cpu>=1.7.4
+
+# Document loaders and parsers
+PyPDF2>=3.0.1
+python-docx>=1.1.0
+pandas>=2.2.0
+
+# Text processing
+tiktoken>=0.5.1
+
+# Environment variable loading
+python-dotenv>=1.0.1
