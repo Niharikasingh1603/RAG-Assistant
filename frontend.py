@@ -21,6 +21,9 @@ if uploaded_files:
     combined_filename = "_".join([file.name for file in uploaded_files])
     vectorstore_path = os.path.join("vectorstores", combined_filename)
 
+    os.makedirs("docs", exist_ok=True)
+    os.makedirs("vectorstores", exist_ok=True)
+
     with st.spinner("Processing documents..."):
         # If cached vectorstore exists
         if os.path.exists(vectorstore_path):
