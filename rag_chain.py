@@ -1,5 +1,5 @@
 import os
-from langchain_community.document_loaders import PyPDFLoader, TextLoader, CSVLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader, CSVLoader, UnstructuredWordDocumentLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import ( GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI, )
 from langchain_community.vectorstores import FAISS
@@ -21,6 +21,8 @@ def load_docs(file_path: str):
         loader = TextLoader(file_path)
     elif file_path.lower().endswith(".csv"):
         loader = CSVLoader(file_path)
+    elif file_path.lower().endswith(".docx"):
+        loader = UnstructuredWordDocumentLoader(file_path)
     else:
         raise ValueError("Unsupported file type")
     return loader.load()
