@@ -29,7 +29,7 @@ def create_vectorstore(docs):
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     chunks = splitter.split_documents(docs)
     
-    embeddings = GoogleGenerativeAIEmbeddings()
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     return FAISS.from_documents(chunks, embeddings)
 
 def get_rag_chain(vectordb):
