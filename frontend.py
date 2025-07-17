@@ -1,3 +1,13 @@
+import asyncio
+import sys
+
+# Patch: Ensure event loop exists for async gRPC clients
+if sys.version_info >= (3, 10):
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        asyncio.set_event_loop(asyncio.new_event_loop())
+
 import streamlit as st
 import os
 from langchain_community.vectorstores import FAISS
@@ -64,7 +74,3 @@ if query and st.session_state.qa_chain:
                 st.code(doc.page_content[:300])
 
         st.session_state.history.append((query, result))
-
-#for q, a in st.session_state.history:
-#    st.markdown(f"**You:** {q}")
-#    st.markdown(f"**AI:** {a}")
