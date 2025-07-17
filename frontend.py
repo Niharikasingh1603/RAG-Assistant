@@ -22,7 +22,7 @@ if "qa_chain" not in st.session_state:
 if "history" not in st.session_state:
     st.session_state.history = []
 
-uploaded_files = st.file_uploader("Upload a document (PDF/TXT/CSV)", type=["pdf", "txt", "csv"], accept_multiple_files=True)
+uploaded_files = st.file_uploader("Upload a document (DOCX/PDF/TXT/CSV)", type=["pdf", "txt", "csv", "docx"], accept_multiple_files=True)
 
 embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
