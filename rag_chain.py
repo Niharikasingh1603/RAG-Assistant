@@ -2,6 +2,7 @@ import os
 from langchain_community.document_loaders import PyPDFLoader, TextLoader, CSVLoader, UnstructuredWordDocumentLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import ( GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI, )
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnableLambda, RunnableParallel, RunnablePassthrough
@@ -31,7 +32,8 @@ def create_vectorstore(docs):
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     chunks = splitter.split_documents(docs)
     
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    #embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     return FAISS.from_documents(chunks, embeddings)
 
 def get_rag_chain(vectordb):
