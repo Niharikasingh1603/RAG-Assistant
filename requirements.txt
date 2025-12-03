@@ -6,6 +6,7 @@ langchain-core
 langchain>=0.1.12
 langchain-community>=0.0.17
 langchain-google-genai>=0.0.6
+langchain-text-splitters
 langchain_huggingface
 sentence-transformers
 
